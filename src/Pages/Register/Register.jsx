@@ -1,8 +1,41 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import  { useContext, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const {user,createUser,setProfile,loading} =useContext(AuthContext)
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        form.reset();
+        setSuccess('');
+        setError('');
+        
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                setProfile(name,photo,createUser)
+                if (password.length < 6) {
+                    setError('Please add at least 6 characters in your password')
+                    return;
+                    
+                }
+                setSuccess('User has been created successfully');
+            })
+            .catch(error => {
+                console.error(error.message);
+                setError(error.message);
+            })
+    }
+
+
     return (
       <div>
         <NavigationBar></NavigationBar>
@@ -13,7 +46,7 @@ const Register = () => {
                             <img className='rounded-lg ' src="https://i.ibb.co/JjXTNgc/register-01.png" alt="" />
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-cyan-600 lg:me-20">
-                            <form className="card-body">
+                            <form onSubmit={handleRegister} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -30,14 +63,11 @@ const Register = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text">Photo URL</span>
                                     </label>
                                     <input type="text" 
-                                    name="photoURL"
-                                    placeholder="photoURL" className="input input-bordered" />
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
+                                    name="photo"
+                                    placeholder="Photo URL" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -47,7 +77,9 @@ const Register = () => {
                                     name="password"
                                     placeholder="password" className="input input-bordered" />
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                   <div>
+                                   Already Have an Account? <Link to="/login" className='text-white'>Login</Link>
+                                   </div>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">

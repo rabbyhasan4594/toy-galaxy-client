@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
+
 
 const NavigationBar = () => {
+  const {user,logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+        .then()
+        .catch(error => console.log(error));
+}
   return (
     <div>
       <div className="navbar bg-cyan-600">
@@ -40,7 +48,15 @@ const NavigationBar = () => {
           </ul>
         </div>
         <div className="navbar-end pe-4">
-          <Link to={"/login"} className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Login</Link>
+          <div>
+            {
+              user?<Link onClick={handleLogOut} to={"/login"} className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">LogOut</Link>:<Link to={"/login"} className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Login</Link>
+          
+            }
+          </div>
+          <div>
+          
+          </div>
         </div>
       </div>
       <div className='w-full h-1 bg-orange-600'></div>

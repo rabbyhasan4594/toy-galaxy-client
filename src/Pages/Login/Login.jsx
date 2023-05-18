@@ -23,9 +23,7 @@ const Login = () => {
                 console.log(error.message);
             });
     }
-    // if (loading) {
-    //     return  <Spinner animation="border" variant="success" />
-    // }
+    
     
 
     const handleLogin = event => {
@@ -73,7 +71,7 @@ const Login = () => {
                                         name="password"
                                         placeholder="password" className="input input-bordered" />
                                     <label className="label">
-                                        <div> Don't Have an Account? <Link to="/registration">Register</Link></div>
+                                        <div> Don't Have an Account? <Link to="/registration" className='text-white'>Register</Link></div>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
