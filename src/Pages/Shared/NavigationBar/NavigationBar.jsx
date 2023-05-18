@@ -25,7 +25,7 @@ const NavigationBar = () => {
 
               </li>
               <li><Link to={"/mytoys"}>My Toys</Link></li>
-              <li><Link to={"/addtoy"}>Add A Toy</Link></li>
+              <li><Link to={"/addatoy"}>Add A Toy</Link></li>
               <li className='pb-2'><Link>Blogs</Link></li>
             </ul>
           </div>
@@ -33,18 +33,33 @@ const NavigationBar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><NavLink to={"/"} className='text-white'>Home</NavLink></li>
+            
 
-            <li>
-              <Link to={"/alltoys"} className='text-white'>All Toys</Link>
-            </li>
-            <li>
-              <Link to={"/mytoys"} className='text-white'>My Toys</Link>
-            </li>
-            <li>
-              <NavLink to={"/addtoy"} className='text-white'>Add A Toy</NavLink>
-              <NavLink to={"/blog"} className='text-white'>Blogs</NavLink>
-            </li>
+            {
+              user?<div>
+                 <ul className="menu menu-horizontal px-1">
+                <li><NavLink to={"/"} className='text-white'>Home</NavLink></li>
+              <li>
+                <Link to={"/alltoys"} className='text-white'>All Toys</Link>
+              </li>
+              <li>
+                <Link to={"/mytoys"} className='text-white'>My Toys</Link>
+              </li>
+              <li>
+                <NavLink to={"/addatoy"} className='text-white'>Add A Toy</NavLink>
+                <NavLink to={"/blog"} className='text-white'>Blogs</NavLink>
+              </li>
+              </ul>
+              </div>:
+              <div>
+                <ul className="menu menu-horizontal px-1">
+                <li><NavLink to={"/"} className='text-white'>Home</NavLink></li>
+              <li>
+                <Link to={"/alltoys"} className='text-white'>All Toys</Link>
+              </li>
+              </ul>
+              </div>
+            }
           </ul>
         </div>
         <div className="navbar-end pe-4">
