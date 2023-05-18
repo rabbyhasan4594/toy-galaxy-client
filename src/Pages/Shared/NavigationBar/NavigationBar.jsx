@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
@@ -11,13 +11,13 @@ const NavigationBar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content  shadow bg-cyan-600  mt-3 w-52 text-white">
-              <li ><Link>Home</Link></li>
+              <li ><Link to={"/"}>Home</Link></li>
               <li tabIndex={0}>
-                <Link>All Toys</Link>
+                <Link to={"/alltoys"}>All Toys</Link>
 
               </li>
-              <li><Link>My Toys</Link></li>
-              <li><Link>Add A Toy</Link></li>
+              <li><Link to={"/mytoys"}>My Toys</Link></li>
+              <li><Link to={"/addtoy"}>Add A Toy</Link></li>
               <li className='pb-2'><Link>Blogs</Link></li>
             </ul>
           </div>
@@ -25,22 +25,22 @@ const NavigationBar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><Link className='text-white'>Home</Link></li>
+            <li><NavLink to={"/"} className='text-white'>Home</NavLink></li>
 
             <li>
-              <Link className='text-white'>All Toys</Link>
+              <Link to={"/alltoys"} className='text-white'>All Toys</Link>
             </li>
             <li>
-              <Link className='text-white'>My Toys</Link>
+              <Link to={"/mytoys"} className='text-white'>My Toys</Link>
             </li>
             <li>
-              <Link className='text-white'>Add A Toy</Link>
-              <Link className='text-white'>Blogs</Link>
+              <NavLink to={"/addtoy"} className='text-white'>Add A Toy</NavLink>
+              <NavLink to={"/blog"} className='text-white'>Blogs</NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end pe-4">
-          <a className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Login</a>
+          <Link to={"/login"} className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Login</Link>
         </div>
       </div>
       <div className='w-full h-1 bg-orange-600'></div>
