@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import  { useContext, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -6,7 +6,10 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const {user,createUser,setProfile,loading} =useContext(AuthContext)
+    const {user,createUser,setProfile,loading} =useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -28,6 +31,7 @@ const Register = () => {
                     
                 }
                 setSuccess('User has been created successfully');
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error.message);
