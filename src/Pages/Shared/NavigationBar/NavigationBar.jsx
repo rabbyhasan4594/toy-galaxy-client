@@ -43,6 +43,7 @@ const NavigationBar = () => {
           <a className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Login</a>
         </div>
       </div>
+      <div className='w-full h-1 bg-orange-600'></div>
     </div>
   );
 };
