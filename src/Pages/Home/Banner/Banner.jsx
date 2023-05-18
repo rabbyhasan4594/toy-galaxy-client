@@ -8,7 +8,7 @@ const Banner = () => {
                     <img src="https://i.ibb.co/P10LgK5/DEFENDER-BANNER-NEW-1-3600-x-1125-2000x625.webp" className="w-full static" />
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-white lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
-                        <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
+                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
                             Button
                         </button>
                     </div>
@@ -22,7 +22,7 @@ const Banner = () => {
                     <img src="https://i.ibb.co/qsNtQMJ/stock-photo-toy-car-gift-box-pink.jpg" className="w-full static" />
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-gray-800 lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
-                        <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
+                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
                             Button
                         </button>
                     </div>
@@ -35,7 +35,7 @@ const Banner = () => {
                     <img src="https://i.ibb.co/GpF10zL/Blue-toy-car-right-blue-background-banner-2400x706-1-1024x301.webp" className="w-full static" />
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-white lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
-                        <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
+                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
                             Button
                         </button>
                     </div>
@@ -48,7 +48,7 @@ const Banner = () => {
                     <img src="https://i.ibb.co/ZW1dXcN/car5.jpg" className="w-full static" />
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-gray-800 lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
-                        <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
+                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
                             Button
                         </button>
                     </div>
