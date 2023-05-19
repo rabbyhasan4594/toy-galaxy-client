@@ -75,9 +75,9 @@ const AddAToy = () => {
                         <div className='mb-2'>
                             <h1>Sub Category </h1>
                             <select className="text-input ps-14 pe-24 py-2 rounded-lg" {...register("category")}>
-                                <option value="Sports car">Sports Car</option>
+                                <option value="sportsCar">Sports Car</option>
                                 <option value="Truck">Truck</option>
-                                <option value="Police car">Police car</option>
+                                <option value="policeCar">Police car</option>
                             </select>
                         </div>
                         <div className='mb-2'>
