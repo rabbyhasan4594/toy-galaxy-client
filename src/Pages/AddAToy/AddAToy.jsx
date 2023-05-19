@@ -6,7 +6,22 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+
+
+        fetch("http://localhost:5000/addAToy", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+            });
+
+
+        console.log(data);
+    }
     return (
         <div>
             <NavigationBar></NavigationBar>
@@ -87,7 +102,7 @@ const AddAToy = () => {
                             <h1>Available quantity</h1>
                             <input
                                 className="text-input px-10 py-2 rounded-lg"
-                                {...register("rating", { required: true })}
+                                {...register("quantity", { required: true })}
                                 placeholder="quantity"
                                 type="number"
                             />

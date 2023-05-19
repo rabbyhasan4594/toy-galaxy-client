@@ -34,17 +34,17 @@ const router = createBrowserRouter([
 
     },
     {
-        path: "/alltoys",
+        path: "/allToys",
         element: <AllToys></AllToys>,
 
     },
     {
-        path: "/addatoy",
+        path: "/addAToy",
         element: <AddAToy></AddAToy>,
 
     },
     {
-        path: "/mytoys",
+        path: "/myToys",
         element: <MyToys></MyToys>,
 
     },
