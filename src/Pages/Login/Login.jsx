@@ -23,6 +23,10 @@ const Login = () => {
                 console.log(error.message);
             });
     }
+
+    if (loading) {
+        return <progress className="progress w-56"></progress>
+    }
     
     
 
