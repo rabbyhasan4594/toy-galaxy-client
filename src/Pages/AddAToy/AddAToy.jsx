@@ -117,7 +117,7 @@ const AddAToy = () => {
                         </div>
 
                         <div className='pt-2'>
-                        <input className="btn text-white bg-orange-600" value="Post Job" type="submit" />
+                        <input className="btn text-white bg-orange-600" value="Post Toy" type="submit" />
                         </div>
                         </div>
                     </form>
