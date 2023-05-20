@@ -15,7 +15,7 @@ const ShopByCategoryCard = ({toy}) => {
             <p className="text-xl text-cyan-700">Price: ${price}</p>
             <p className="text-xl text-cyan-700 mb-2">Rating: {rating}</p>
             <div className="card-actions">
-                <Link to={'/'}>
+                <Link to={`/viewDetails/${toy._id}`}>
                 <button className="btn btn-outline btn-accent">View Details</button>
 
                 </Link>
