@@ -141,11 +141,10 @@ const handleDelete =_id =>{
 
                                     <td>
 
-                                        <label htmlFor="my-modal-6" className="btn btn-sm btn-outline btn-primary" onClick={() => setModalShow(true)}>Update</label>
-
+                                        <label htmlFor="my-modal-6" className="btn btn-sm btn-outline btn-primary" >Update</label>
+                                    
                                         <UpdateToyModal
-                                            show={modalShow}
-                                            onHide={() => setModalShow(false)}
+                                        key={toy._id}
                                             toy={toy}
                                             handleToyUpdate={handleToyUpdate}
                                         />

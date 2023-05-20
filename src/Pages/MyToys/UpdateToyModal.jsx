@@ -5,6 +5,9 @@ const UpdateToyModal = (props) => {
     // console.log(props);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { handleToyUpdate } = props;
+    const { toy } = props;
+    const{_id} =toy;
+    console.log(_id);
     return (
         <div>
             {/* Put this part before </body> tag */}
