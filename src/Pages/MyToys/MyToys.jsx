@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { AuthContext } from '../../Providers/AuthProvider';
 import UpdateToyModal from './UpdateToyModal';
+import Swal from 'sweetalert2';
 
 
 const MyToys = () => {
@@ -9,6 +10,8 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
     const [control, setControl] = useState(false);
+    const [deleteControl, setDeleteControl] = useState(false);
+
    
 
     useEffect(() => {
@@ -18,7 +21,7 @@ const MyToys = () => {
                 setToys(data);
 
             });
-    }, [user,control]);
+    }, [user,control,deleteControl]);
 
 
     const handleToyUpdate = (data) => {
@@ -46,15 +49,56 @@ const MyToys = () => {
     }
      
 
-const handleSortMyToys =()=>{
-    fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
+// const handleSortMyToys =()=>{
+//     fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
+//             .then((res) => res.json())
+//             .then((data) => {
+//                  setToys(data);
+//                 console.log(data);
+
+//             });
+// }
+
+
+const handleDelete =_id =>{
+    console.log(_id);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+
+          fetch(`http://localhost:5000/myToys/${_id}`, {
+            method: "DELETE",
+          })
             .then((res) => res.json())
             .then((data) => {
-                 setToys(data);
-                console.log(data);
-
+              if (data.deletedCount > 0) {
+                console.log(data.deletedCount);
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success',
+                    
+                  )
+                  setDeleteControl(!deleteControl)
+                
+              }
+              
             });
-}
+        }
+      })
+ }
 
 
     return (
@@ -109,7 +153,7 @@ const handleSortMyToys =()=>{
 
                                     </td>
 
-                                    <td><button className="btn btn-sm btn-outline btn-secondary">Delete</button></td>
+                                    <td><button className="btn btn-sm btn-outline btn-secondary" onClick={()=> handleDelete(toy._id)}>Delete</button></td>
                                 </tr>
                             ))
                         }
@@ -118,7 +162,7 @@ const handleSortMyToys =()=>{
                     </tbody>
                 </table>
             </div>
-           <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div>
+           {/* <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div> */}
 
 
         </div>
