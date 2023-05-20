@@ -33,6 +33,8 @@ const NavigationBar = () => {
                   <li tabIndex={0}>
                     <NavLink to={"/allToys"}>All Toys</NavLink>
                   </li>
+                  <li><NavLink to={"/blog"}>Blogs</NavLink></li>
+                  
                 </div>
 
               }
@@ -66,6 +68,7 @@ const NavigationBar = () => {
                     <li>
                       <NavLink to={"/allToys"} className='text-white'>All Toys</NavLink>
                     </li>
+                    <li><NavLink to={"/blog"} className='text-white'>Blogs</NavLink></li>
                   </ul>
                 </div>
             }

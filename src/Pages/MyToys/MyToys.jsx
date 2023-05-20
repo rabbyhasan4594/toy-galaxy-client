@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { AuthContext } from '../../Providers/AuthProvider';
-import UpdateToyModal from './UpdateToyModal';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const MyToys = () => {
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    const [modalShow, setModalShow] = React.useState(false);
+    
     const [control, setControl] = useState(false);
     const [deleteControl, setDeleteControl] = useState(false);
 
-   
+
+
 
     useEffect(() => {
         fetch(`https://toy-galaxy-server-lake.vercel.app/myToys/${user?.email}`)
@@ -21,84 +22,85 @@ const MyToys = () => {
                 setToys(data);
 
             });
-    }, [user,control,deleteControl]);
+    }, [user, control, deleteControl]);
 
 
     const handleToyUpdate = (data) => {
         console.log(data);
 
         fetch(`http://localhost:5000/updateToy/${data._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.modifiedCount > 0) {
-          setControl(!control);
-        }
-        console.log(result);
-      });
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.modifiedCount > 0) {
+                    setControl(!control);
+                }
+                console.log(result);
+            });
 
 
-      };
+    };
 
 
     if (loading) {
         return <progress className="progress w-56"></progress>
     }
-     
-
-// const handleSortMyToys =()=>{
-//     fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
-//             .then((res) => res.json())
-//             .then((data) => {
-//                  setToys(data);
-//                 console.log(data);
-
-//             });
-// }
 
 
-const handleDelete =_id =>{
-    console.log(_id);
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+    const handleSortMyToys =()=>{
+        fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
+                .then((res) => res.json())
+                .then((data) => {
+                     setToys(data);
+                    console.log(data);
 
-          fetch(`http://localhost:5000/myToys/${_id}`, {
-            method: "DELETE",
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.deletedCount > 0) {
-                console.log(data.deletedCount);
+                });
+    }
+
+
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
-                    'success',
+                    'success'
+                )
+
+                fetch(`http://localhost:5000/myToys/${_id}`, {
+                    method: "DELETE",
                     
-                  )
-                  setDeleteControl(!deleteControl)
-                
-              }
-              
-            });
-        }
-      })
- }
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            console.log(data.deletedCount);
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success',
+
+                            )
+                            setDeleteControl(!deleteControl)
+
+                        }
+
+                    });
+            }
+        })
+    }
 
 
     return (
@@ -106,7 +108,7 @@ const handleDelete =_id =>{
             <NavigationBar></NavigationBar>
 
 
-            
+
 
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full">
@@ -141,18 +143,14 @@ const handleDelete =_id =>{
 
                                     <td>
 
-                                        <label htmlFor="my-modal-6" className="btn btn-sm btn-outline btn-primary" >Update</label>
-                                    
-                                        <UpdateToyModal
-                                        key={toy._id}
-                                            toy={toy}
-                                            handleToyUpdate={handleToyUpdate}
-                                        />
+                                        <Link to={`/update/${toy._id}`}><label htmlFor="my-modal-6" className="btn btn-sm btn-outline btn-primary" >Update</label></Link>
+
+                                     
 
 
                                     </td>
 
-                                    <td><button className="btn btn-sm btn-outline btn-secondary" onClick={()=> handleDelete(toy._id)}>Delete</button></td>
+                                    <td><button className="btn btn-sm btn-outline btn-secondary" onClick={() => handleDelete(toy._id)}>Delete</button></td>
                                 </tr>
                             ))
                         }
@@ -161,7 +159,7 @@ const handleDelete =_id =>{
                     </tbody>
                 </table>
             </div>
-           {/* <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div> */}
+            <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div>
 
 
         </div>

@@ -21,18 +21,11 @@ const AddAToy = () => {
             .then((result) => {
               console.log(result);
               Swal.fire({
-                title: 'Do you want to Add?',
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: 'Add',
-                denyButtonText: `Don't Add`,
-              }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                  Swal.fire('Saved!', '', 'success')
-                } else if (result.isDenied) {
-                  Swal.fire('Changes are not saved', '', 'info')
-                }
+                position: 'top-end',
+                icon: 'success',
+                title: 'Added Successfully',
+                showConfirmButton: false,
+                timer: 1500
               })
             });
 
@@ -119,7 +112,7 @@ const AddAToy = () => {
                                 className="text-input px-10 py-2 rounded-lg"
                                 {...register("rating", { required: true })}
                                 placeholder="Rating"
-                                type="number"
+                                type="text"
                             />
                         </div>
                         <div className='mb-2'>
