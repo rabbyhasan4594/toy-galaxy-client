@@ -6,6 +6,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   
+   
     const onSubmit = data => {
 
 
@@ -22,6 +24,13 @@ const AddAToy = () => {
 
         console.log(data);
     }
+
+
+
+
+
+
+
     return (
         <div>
             <NavigationBar></NavigationBar>
@@ -76,7 +85,7 @@ const AddAToy = () => {
                             <h1>Sub Category </h1>
                             <select className="text-input ps-14 pe-24 py-2 rounded-lg" {...register("category")}>
                                 <option value="sportsCar">Sports Car</option>
-                                <option value="Truck">Truck</option>
+                                <option value="truck">Truck</option>
                                 <option value="policeCar">Police car</option>
                             </select>
                         </div>
