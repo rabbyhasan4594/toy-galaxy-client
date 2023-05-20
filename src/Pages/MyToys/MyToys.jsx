@@ -9,6 +9,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
     const [control, setControl] = useState(false);
+   
 
     useEffect(() => {
         fetch(`https://toy-galaxy-server-lake.vercel.app/myToys/${user?.email}`)
@@ -18,6 +19,7 @@ const MyToys = () => {
 
             });
     }, [user,control]);
+
 
     const handleToyUpdate = (data) => {
         console.log(data);
@@ -42,12 +44,25 @@ const MyToys = () => {
     if (loading) {
         return <progress className="progress w-56"></progress>
     }
+     
+
+const handleSortMyToys =()=>{
+    fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                 setToys(data);
+                console.log(data);
+
+            });
+}
+
+
     return (
         <div>
             <NavigationBar></NavigationBar>
 
 
-
+            
 
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full">
@@ -103,7 +118,7 @@ const MyToys = () => {
                     </tbody>
                 </table>
             </div>
-
+           <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div>
 
 
         </div>
