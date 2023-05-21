@@ -12,7 +12,7 @@ const UpdateToyModal = () => {
     const handleToyUpdate = (data) => {
         console.log(data);
 
-        fetch(`http://localhost:5000/updateToy/${data._id}`, {
+        fetch(`http://toy-galaxy-server-lake.vercel.app/updateToy/${data._id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

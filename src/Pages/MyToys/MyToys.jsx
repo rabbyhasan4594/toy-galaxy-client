@@ -16,7 +16,7 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`https://toy-galaxy-server-lake.vercel.app/myToys/${user?.email}`)
+        fetch(`http://toy-galaxy-server-lake.vercel.app/myToys/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);
@@ -28,7 +28,7 @@ const MyToys = () => {
     const handleToyUpdate = (data) => {
         console.log(data);
 
-        fetch(`http://localhost:5000/updateToy/${data._id}`, {
+        fetch(`http://toy-galaxy-server-lake.vercel.app/updateToy/${data._id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -51,7 +51,7 @@ const MyToys = () => {
 
 
     const handleSortMyToys =()=>{
-        fetch(`http://localhost:5000/myToys/sort/${user?.email}`)
+        fetch(`http://toy-galaxy-server-lake.vercel.app/myToysSort/${user?.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                      setToys(data);
@@ -79,7 +79,7 @@ const MyToys = () => {
                     'success'
                 )
 
-                fetch(`http://localhost:5000/myToys/${_id}`, {
+                fetch(`https://toy-galaxy-server-lake.vercel.app/myToysDelete/${_id}`, {
                     method: "DELETE",
                     
                 })

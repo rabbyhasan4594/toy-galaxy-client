@@ -11,6 +11,7 @@ import MyToys from '../Pages/MyToys/MyToys';
 import ViewDetails from '../Pages/ViewDetails/ViewDetails';
 import PrivateRoute from './PrivateRoute';
 import UpdateToyModal from '../Pages/MyToys/UpdateToyModal';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
     {
@@ -19,50 +20,60 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                errorElement: <ErrorPage />,
             },
         ]
     },
     {
         path:"/login",
-        element:<Login></Login>
+        element:<Login></Login>,
+        errorElement: <ErrorPage />,
     },
     {
         path:"/blog",
-        element:<Blog></Blog>
+        element:<Blog></Blog>,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/registration",
         element: <Register></Register>,
+        errorElement: <ErrorPage />,
 
     },
     {
         path: "/allToys",
         element: <AllToys></AllToys>,
+        errorElement: <ErrorPage />,
 
     },
     {
         path: "/addAToy",
         element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>,
+        errorElement: <ErrorPage />,
 
     },
     {
         path: "/myToys",
         element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
+        errorElement: <ErrorPage />,
+        
         
 
     },
     {
         path: "/update/:id",
         element: <UpdateToyModal></UpdateToyModal>,
-        loader: ({params}) => fetch(`http://localhost:5000/update/${params.id}`)
+        errorElement: <ErrorPage />,
+        loader: ({params}) => fetch(`http://toy-galaxy-server-lake.vercel.app/update/${params.id}`)
 
     },
 
     {
         path: "/viewDetails/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
+        errorElement: <ErrorPage />,
+        loader: ({params}) => fetch(`http://toy-galaxy-server-lake.vercel.app/viewDetails/${params.id}`)
 
     },
 ])
