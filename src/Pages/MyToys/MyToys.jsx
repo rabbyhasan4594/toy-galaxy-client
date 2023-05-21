@@ -3,9 +3,11 @@ import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hook/Hook';
 
 
 const MyToys = () => {
+    useTitle('MyToys')
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     

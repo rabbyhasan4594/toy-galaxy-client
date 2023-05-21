@@ -3,9 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useTitle from '../../Hook/Hook';
+import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
-    const { signIn, signInWithGoogle, signInWithGithub, loading } = useContext(AuthContext);
+    useTitle('Login')
+    const { signIn, signInWithGoogle, loading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -90,6 +93,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

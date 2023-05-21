@@ -2,8 +2,10 @@ import React from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import Footer from '../Shared/Footer/Footer';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hook/Hook';
 
 const ViewDetails = () => {
+    useTitle('ViewDetails')
     const viewDetails = useLoaderData();
     const{image,toyName, sellerName, sellerEmail, price, rating,quantity,description}=viewDetails;
     console.log(viewDetails);

@@ -3,8 +3,10 @@ import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../Hook/Hook';
 
 const AddAToy = () => {
+    useTitle('AddAToy')
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
    

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
-import Toy from './Toy';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hook/Hook';
 
 
 const AllToys = () => {
+    useTitle('AllToys')
     const [toys, setToys] = useState([]);
     const [searchText, setSearchText] = useState("");
     useEffect(() => {
