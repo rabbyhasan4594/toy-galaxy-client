@@ -6,7 +6,9 @@ const GallerySectionImg = ({ toy }) => {
     console.log(image);
     return (
         
-            <img src={image} className='lg:w-72 w-40'/>
+          <div>
+              <img src={image} className='lg:w-72 w-4'/>
+          </div>
             
         
     );
