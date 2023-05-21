@@ -12,19 +12,17 @@ const ShopByCategory = () => {
       .then((res) => res.json())
       .then((result) => {
         setToys(result);
-        console.log(result);
       });
   }, [activeTab]);
 
   const handleTabClick = (tabName) => {
-    console.log(tabName);
     setActiveTab(tabName);
   };
   return (
     <div>
 
 
-      <div className="mt-4 mb-96">
+      <div className="mt-4 lg:mb-10 mb-4 lg:mx-10 gap-3">
         <div className="text-center">
           <h2 className="font-bold text-4xl lg:my-10 my-2 text-center text-orange-600">Category</h2>
 

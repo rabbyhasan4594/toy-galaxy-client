@@ -27,9 +27,6 @@ const Login = () => {
             });
     }
 
-    if (loading) {
-        return <progress className="progress w-56"></progress>
-    }
     
     
 
@@ -68,7 +65,7 @@ const Login = () => {
                                         <span className="label-text">Email</span>
                                     </label>
                                     <input type="email"
-                                        name="email" placeholder="email" className="input input-bordered" />
+                                        name="email" placeholder="email" className="input input-bordered" required/>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -76,7 +73,7 @@ const Login = () => {
                                     </label>
                                     <input type="password"
                                         name="password"
-                                        placeholder="password" className="input input-bordered" />
+                                        placeholder="password" className="input input-bordered" required/>
                                     <label className="label">
                                         <div> Don't Have an Account? <Link to="/registration" className='text-white'>Register</Link></div>
                                     </label>
@@ -84,9 +81,13 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <input className="btn bg-orange-500" type="submit" value="Login" />
                                 </div>
+
+                                <div className='text-red-700' > <p>{error}</p></div>
                                 <div className="form-control mt-6">
                                     <button onClick={handleGoogleSignIn}  className="btn bg-transparent" type="submit" >  <FaGoogle  className='w=4/5 me-2'/> Login with Google </button>
                                 </div>
+
+
                                 
                             </form>
                         </div>

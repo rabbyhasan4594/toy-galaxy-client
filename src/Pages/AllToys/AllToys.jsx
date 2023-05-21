@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import { Link } from 'react-router-dom';
 import useTitle from '../../Hook/Hook';
+import Footer from '../Shared/Footer/Footer';
 
 
 const AllToys = () => {
@@ -13,7 +14,7 @@ const AllToys = () => {
             .then((res) => res.json())
             .then((result) => {
                 setToys(result);
-                console.log(toys);
+                
             });
     }, [])
 
@@ -23,7 +24,7 @@ const AllToys = () => {
         fetch(`http://toy-galaxy-server-lake.vercel.app/getToysByText/${searchText}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            
             setToys(data);
           });
       };
@@ -48,13 +49,14 @@ const AllToys = () => {
 
                 
             </div>
+           
 
 
 
 
 
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto lg:mb-20 mb-4">
                 <table className="table table-compact w-full">
                     <thead>
                         <tr className='text-center'>
@@ -91,6 +93,8 @@ const AllToys = () => {
 
                 </table>
             </div>
+
+            <Footer></Footer>
 
 
 

@@ -13,7 +13,7 @@ const GallerySection = () => {
         .then((res) => res.json())
         .then((result) => {
           setToys(result);
-          console.log(result);
+         
         });
     }, []);
     return (

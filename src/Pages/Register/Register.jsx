@@ -92,7 +92,10 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <input className="btn bg-orange-500" type="submit" value="Register" />
                             </div>
+                            <div className='text-green-700'><p>{success}</p></div>
+                        <div className='  text-red-700'><p>{error}</p></div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

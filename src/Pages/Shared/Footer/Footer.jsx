@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -6,28 +7,23 @@ const Footer = () => {
             <footer className="footer p-10 bg-cyan-700 text-base-content">
   <div>
     <img className='w-1/3' src="https://i.ibb.co/7v52Ls3/logo3.png" alt="" />
-    <p className='text-white'>Toy Galaxy Ltd.<br/>Providing reliable tech since 1992</p>
+    <p className='text-white'>Toy Galaxy Ltd.<br/>Providing best toy car since 2020.
+    <br />Copyright © 2023 Toy Galaxy. All rights reserved.</p>
   </div> 
   <div className='text-white'>
-    <span className="">Services</span> 
-    <a className="link link-hover">Branding</a> 
-    <a className="link link-hover">Design</a> 
-    <a className="link link-hover">Marketing</a> 
-    <a className="link link-hover">Advertisement</a>
+    <span className="text-black font-bold">Sub-category</span> 
+    <span className="">Sports Car</span> 
+    <span className="">Truck</span> 
+    <span className="">Police Car</span> 
+    
   </div> 
   <div className='text-white'>
-    <span className=" ">Company</span> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
+    <span className="text-black font-bold text-center">About</span>
+    <span className="">Phone:0174000000</span> 
+    <span className="">Email:rabby@gmail.com</span>  
+ 
   </div> 
-  <div className='text-white'>
-    <span className="">Legal</span> 
-    <a className="link link-hover">Terms of use</a> 
-    <a className="link link-hover">Privacy policy</a> 
-    <a className="link link-hover">Cookie policy</a>
-  </div>
+  
 </footer>
         </div>
     );

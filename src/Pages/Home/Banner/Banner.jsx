@@ -9,7 +9,7 @@ const Banner = () => {
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-white lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
                         <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
-                            Button
+                            Shop Now
                         </button>
                     </div>
 
@@ -36,7 +36,7 @@ const Banner = () => {
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-white lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
                         <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
-                            Button
+                        Shop Now
                         </button>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -49,7 +49,7 @@ const Banner = () => {
                     <div className='absolute lg:top-44 lg:left-40 top-5 left-24'>
                         <h1 className='text-gray-800 lg:text-4xl lg:w-1/3 w-2/3 '>Rev up the fun and explore a galaxy of car toys at Toy Galaxy</h1>
                         <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 lg:px-6 px-4 rounded lg:mt-6 mt-2">
-                            Button
+                        Shop Now
                         </button>
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

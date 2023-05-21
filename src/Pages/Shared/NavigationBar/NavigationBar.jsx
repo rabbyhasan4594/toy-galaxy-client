@@ -34,7 +34,7 @@ const NavigationBar = () => {
                     <NavLink to={"/allToys"}>All Toys</NavLink>
                   </li>
                   <li><NavLink to={"/blog"}>Blogs</NavLink></li>
-                  
+
                 </div>
 
               }
@@ -78,7 +78,10 @@ const NavigationBar = () => {
           <div>
             {
               user ? <div className='flex justify-center items-center gap-3'>
+                
+                <div className="tooltip" data-tip={user.displayName}>
                 <img style={{ height: "40px", weight: "40px " }} src={user.photoURL} alt="" className='rounded-md ' />
+                </div>
 
                 <NavLink onClick={handleLogOut} to={"/login"} className="bg-transparent hover:bg-gray-600 text-white font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">LogOut</NavLink>
 

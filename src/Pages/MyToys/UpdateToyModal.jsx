@@ -7,10 +7,10 @@ import Swal from 'sweetalert2';
 const UpdateToyModal = () => {
 
     const updateToy = useLoaderData();
-     console.log(updateToy);
+     
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const handleToyUpdate = (data) => {
-        console.log(data);
+        
 
         fetch(`http://toy-galaxy-server-lake.vercel.app/updateToy/${data._id}`, {
             method: "PUT",
@@ -28,7 +28,7 @@ const UpdateToyModal = () => {
                         timer: 1500
                       })
                 }
-                console.log(result);
+                
             });
 
 

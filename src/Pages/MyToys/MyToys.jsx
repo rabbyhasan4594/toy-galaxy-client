@@ -4,13 +4,14 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import useTitle from '../../Hook/Hook';
+import Footer from '../Shared/Footer/Footer';
 
 
 const MyToys = () => {
     useTitle('MyToys')
     const { user, loading } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
-    
+
     const [control, setControl] = useState(false);
     const [deleteControl, setDeleteControl] = useState(false);
 
@@ -28,7 +29,6 @@ const MyToys = () => {
 
 
     const handleToyUpdate = (data) => {
-        console.log(data);
 
         fetch(`http://toy-galaxy-server-lake.vercel.app/updateToy/${data._id}`, {
             method: "PUT",
@@ -40,7 +40,7 @@ const MyToys = () => {
                 if (result.modifiedCount > 0) {
                     setControl(!control);
                 }
-                console.log(result);
+
             });
 
 
@@ -52,19 +52,19 @@ const MyToys = () => {
     }
 
 
-    const handleSortMyToys =()=>{
+    const handleSortMyToys = () => {
         fetch(`http://toy-galaxy-server-lake.vercel.app/myToysSort/${user?.email}`)
-                .then((res) => res.json())
-                .then((data) => {
-                     setToys(data);
-                    console.log(data);
+            .then((res) => res.json())
+            .then((data) => {
+                setToys(data);
 
-                });
+
+            });
     }
 
 
     const handleDelete = _id => {
-        console.log(_id);
+
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -83,12 +83,11 @@ const MyToys = () => {
 
                 fetch(`https://toy-galaxy-server-lake.vercel.app/myToysDelete/${_id}`, {
                     method: "DELETE",
-                    
+
                 })
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {
-                            console.log(data.deletedCount);
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
@@ -112,7 +111,7 @@ const MyToys = () => {
 
 
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto lg:mb-10 mb-4">
                 <table className="table table-compact w-full">
                     <thead>
                         <tr className='text-center'>
@@ -147,7 +146,7 @@ const MyToys = () => {
 
                                         <Link to={`/update/${toy._id}`}><label htmlFor="my-modal-6" className="btn btn-sm btn-outline btn-primary" >Update</label></Link>
 
-                                     
+
 
 
                                     </td>
@@ -161,8 +160,8 @@ const MyToys = () => {
                     </tbody>
                 </table>
             </div>
-            <div className='text-center'> <button className="btn bg-cyan-700 text-white" onClick={handleSortMyToys}>Sort By Ascending</button></div>
-
+            <div className='text-center'> <button className="btn bg-cyan-700 text-white  lg:mb-20 mb-4" onClick={handleSortMyToys}>Sort By Ascending</button></div>
+            <Footer></Footer>
 
         </div>
     );

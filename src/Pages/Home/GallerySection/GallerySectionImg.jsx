@@ -3,7 +3,7 @@ import React from 'react';
 const GallerySectionImg = ({ toy }) => {
 
     const { image } = toy;
-    console.log(image);
+   
     return (
         
           <div>

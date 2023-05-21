@@ -1,6 +1,6 @@
 
 ### Live Link
-*Hosted in Firebase -> (https://toy-galaxy-d3c1c.web.app)
+*Hosted in Firebase -> (https://toy-galaxy-d3c1c.web.app/)
 
 ### features
 

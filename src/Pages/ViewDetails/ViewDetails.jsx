@@ -8,7 +8,7 @@ const ViewDetails = () => {
     useTitle('ViewDetails')
     const viewDetails = useLoaderData();
     const{image,toyName, sellerName, sellerEmail, price, rating,quantity,description}=viewDetails;
-    console.log(viewDetails);
+    
     return (
         <div>
             <NavigationBar></NavigationBar>
